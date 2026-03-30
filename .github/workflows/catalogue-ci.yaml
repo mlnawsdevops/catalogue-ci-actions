@@ -29,8 +29,6 @@ jobs:
       project: roboshop
       component: catalogue
       app_type: nodejs
-      deploy_repo: joindevops-actions/catalogue-deploy
-      values_file: values-dev.yaml
       aws_account_id: "160885265516"
 
     secrets:
