@@ -1,0 +1,31 @@
+# calling child module → uses: <owner>/<repo>/.github/workflows/<workflow-file>@<ref>
+  # joindevops-actions → GitHub org/user
+  # your-repo → repository where workflow lives
+  # .github/workflows/common-ci-cd.yml → workflow file
+  # @main → branch or tag reference
+
+# deploy_repo: <owner>/<repository>
+
+name: catalogue pipeline
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+  deploy:
+    uses: joindevops-actions/your-repo/.github/workflows/common-ci-cd.yml@main
+
+    with:
+      project: roboshop
+      component: catalogue
+      app_type: nodejs
+      deploy_repo: joindevops-actions/catalogue-deploy
+      values_file: values-dev.yaml
+      aws_account_id: "160885265516"
+
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
