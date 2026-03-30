@@ -16,7 +16,7 @@ on:
 
 jobs:
   deploy:
-    uses: joindevops-actions/your-repo/.github/workflows/common-ci-cd.yml@main
+    uses: mlnawsdevops/reusable-workflows/.github/workflows/common-ci.yml@main
 
     with:
       project: roboshop
